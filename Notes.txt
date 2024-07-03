@@ -1,1 +1,11 @@
-Hello
+**package lock json = provide all the packages and dependencies required to work with the third party app; It maintains the version of the dependencies;
+it insures that after cloning when npm i is done all the dependencies with same version is downloaded
+used for version control;
+helps identify any vulnerabilities in dependencies
+
+
+const app = express(); knowns as rest object and used to create web server and handle http requests;
+express.json() is a middleware to parse incoming json requests;
+
+morgan package = prints the url requested at console;
+cors = cross origin resource sharing to share and communicate the two different server
