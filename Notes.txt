@@ -9,3 +9,7 @@ express.json() is a middleware to parse incoming json requests;
 
 morgan package = prints the url requested at console;
 cors = cross origin resource sharing to share and communicate the two different server
+
+module.exports = mongoose.model('users' , userSchema)
+users -> name on database
+userSchema -> name of the schema that has been made;
