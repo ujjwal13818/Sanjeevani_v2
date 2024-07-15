@@ -13,3 +13,7 @@ cors = cross origin resource sharing to share and communicate the two different 
 module.exports = mongoose.model('users' , userSchema)
 users -> name on database
 userSchema -> name of the schema that has been made;
+
+//////////redux
+
+redux is a third party library for react in which we manage global states with better code readability. this is one wway data binding as logic flows from ui to dispatcher to store where reducers functins get executed based on that our global state changes.
