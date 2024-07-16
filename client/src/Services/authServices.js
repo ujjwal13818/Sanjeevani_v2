@@ -1,14 +1,13 @@
-import { userLogin } from "../Redux/features/auth/authActions";
+import { userLogin, userRegister } from "../Redux/features/auth/authActions";
 import store from "../Redux/store";
-
 
 export const handleLogin = (e, email, password, role) => {
   e.preventDefault();
   try {
-    if(!role || !email || !password){
+    if (!role || !email || !password) {
       return alert("Please Privde All Feilds");
     }
-    store.dispatch(userLogin({role , email , password}));
+    store.dispatch(userLogin({ role, email, password }));
   } catch (error) {
     console.log(error);
   }
@@ -27,18 +26,21 @@ export const handleRegister = (
   website
 ) => {
   e.preventDefault();
-    try {
-        console.log("register" ,   e,
-  name,
-  role,
-  email,
-  password,
-  phone,
-  organisationName,
-  address,
-  hospitalName,
-  website);
-    } catch (error) {
-        console.log(error);
-    }
+  try {
+    store.dispatch(
+      userRegister({
+        name,
+        role,
+        email,
+        password,
+        phone,
+        organisationName,
+        address,
+        hospitalName,
+        website,
+      })
+    );
+  } catch (error) {
+    console.log(error);
+  }
 };

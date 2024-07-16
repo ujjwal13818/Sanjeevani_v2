@@ -34,6 +34,10 @@ const inventorySchema = new mongoose.Schema({
             return this.inventoryType === 'in';
         },
     },
+    email: {
+        type: String,
+        required: [true, "Donar email is required"]
+    }
 },
 {timestamps: true}
 )
