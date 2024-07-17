@@ -1,5 +1,5 @@
-import { userLogin, userRegister } from "../Redux/features/auth/authActions";
-import store from "../Redux/store";
+import { userLogin, userRegister } from "../redux/features/auth/authActions";
+import store from "../redux/store";
 
 export const handleLogin = (e, email, password, role) => {
   e.preventDefault();
@@ -7,7 +7,7 @@ export const handleLogin = (e, email, password, role) => {
     if (!role || !email || !password) {
       return alert("Please Privde All Feilds");
     }
-    store.dispatch(userLogin({ role, email, password }));
+    store.dispatch(userLogin({ email, password, role }));
   } catch (error) {
     console.log(error);
   }

@@ -1,7 +1,7 @@
 import React, { useState } from "react";
 import { useSelector } from "react-redux";
 import InputType from "./../Form/InputType";
-import API from '../../../Services/API'
+import API from "./../../../services/API";
 
 const Modal = () => {
   const [inventoryType, setInventoryType] = useState("in");
@@ -16,8 +16,8 @@ const Modal = () => {
         return alert("Please Provide All Fields");
       }
       const { data } = await API.post("/inventory/create-inventory", {
-        email : user?.email,
-        organization: user?._id,
+        email,
+        organisation: user?._id,
         inventoryType,
         bloodGroup,
         quantity,

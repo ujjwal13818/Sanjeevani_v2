@@ -1,14 +1,13 @@
 import React, { useEffect, useState } from "react";
 import { useSelector } from "react-redux";
 import { useNavigate } from "react-router-dom";
-import Layout from "../Components/Shared/Layout/Layout";
+import Spinner from "../components/shared/Spinner";
+import Layout from "../components/shared/Layout/Layout";
+import Modal from "../components/shared/modal/Modal";
+import API from "../services/API";
 import moment from "moment";
-import Modal from "../Components/Shared/Modal/Modal";
-import API from '../Services/API'
 
-
-
-const Home = () => {
+const HomePage = () => {
   const { loading, error, user } = useSelector((state) => state.auth);
   const [data, setData] = useState([]);
   const navigate = useNavigate();
@@ -19,6 +18,7 @@ const Home = () => {
       const { data } = await API.get("/inventory/get-inventory");
       if (data?.success) {
         setData(data?.inventory);
+        // console.log(data);
       }
     } catch (error) {
       console.log(error);
@@ -32,7 +32,9 @@ const Home = () => {
     <Layout>
       {user?.role === "admin" && navigate("/admin")}
       {error && <span>{alert(error)}</span>}
-      
+      {loading ? (
+        <Spinner />
+      ) : (
         <>
           <div className="container">
             <h4
@@ -72,8 +74,9 @@ const Home = () => {
             <Modal />
           </div>
         </>
+      )}
     </Layout>
-  )
+  );
 };
 
-export default Home;
+export default HomePage;
